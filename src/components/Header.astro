@@ -1,0 +1,44 @@
+---
+
+import type { Link } from "../types/link_types.ts";
+import "../styles/global.css";
+
+interface Props {
+    links: Link[];
+}
+
+const {links}: Props = Astro.props;
+const currentPath = Astro.url.pathname;
+---
+<header class="flex flex-row justify-between items-center w-full h-12 p-10 bg-transparent">
+    <div class="flex flex-row justify-center items-center w-15 h-15">
+        <img src="/logo.svg" alt="Logo" class="w-10 h-10" />
+    </div>
+    <div class="flex flex-row md:justify-between justify-end items-center w-120 h-auto p-2">
+        <div id="menuTrigger" class="md:hidden flex flex-col justify-between items-center w-15 h-12 mr-12 p-1 hover:cursor-pointer">
+            <span class="w-[90%] h-1 bg-brand-gray-700 rounded-2xl"></span>
+            <span class="w-[90%] h-1 bg-brand-gray-700 rounded-2xl"></span>
+            <span class="w-[90%] h-1 bg-brand-gray-700 rounded-2xl"></span>
+            <span class="w-[90%] h-1 bg-brand-gray-700 rounded-2xl"></span>
+        </div>
+        <nav class="flex flex-row justify-between items-center h-12">
+            <ul id="mobileMenu" class="md:relative absolute md:flex hidden md:flex-row flex-col md:justify-between md:items-center items-center md:w-full w-80 md:h-12 h-50 md:right-0 right-15 md:top-0 top-20 gap-5 p-5 md:bg-transparent bg-brand-gray-100/80 md:rounded-none rounded-2xl">
+                {links.map((link) => (
+                    <li class="list-none flex-row justify-center items-center text-center"><a href={link.href} class:list={link.href === currentPath ? ["relative no-underline font-inter", "after:absolute after:left-0 after:bottom-0", "after:h-0.5 after:rounded-2xl after:w-full after:content-['']", "after:bg-brand-peru-400", "after:scale-x-0 after:origin-left", "after:transition-transform after:duration-300", "hover:after:scale-x-100", "text-brand-peru-400 hover:text-brand-peru-600", "pb-1"] : ["relative no-underline font-inter", "after:absolute after:left-0 after:bottom-0", "after:h-[2px] after:rounded-2xl after:w-full after:content-['']", "after:bg-brand-red-800", "after:scale-x-0 after:origin-left", "after:transition-transform after:duration-300", "hover:after:scale-x-100", "text-brand-red-800", "pb-1"]}>{link.label}</a></li>
+                ))} 
+            </ul>
+        </nav>
+        <button class="flex flex-row justify-center items-center w-25 h-10 bg-brand-peru-400 hover:bg-brand-peru-300 hover:cursor-pointer rounded-sm font-inter">
+                <span class="text-white text-sm">Contactanos</span>
+        </button>
+    </div>
+</header>
+<script>
+  const trigger = document.getElementById("menuTrigger");
+  const menu = document.getElementById("mobileMenu");
+
+  trigger?.addEventListener("click", () => {
+    menu?.classList.toggle("hidden");
+    menu?.classList.toggle("flex");
+  });
+</script>
