@@ -1,8 +1,11 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import HeroSection from "../components/HeroSection.astro";
+import ServicesPeople from "../components/servicesPeople.astro";
+import { services } from "../data/services"
 const title = "Latentia";
 ---
 <MainLayout title={title}>
     <HeroSection />
+    <ServicesPeople service={services}/>
 </MainLayout>	

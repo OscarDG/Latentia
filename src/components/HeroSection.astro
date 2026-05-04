@@ -1,16 +1,16 @@
 ---
-
+import Button from "./Button.astro"
 ---
-<section id="hero-section" class="flex flex-col justify-end items-center w-full h-dvh min-h-screen bg-[url(../assets/images/hero_image.webp)] bg-no-repeat md:bg-cover bg-cover bg-center 2xl:pb-20 lg:pb-10 md:pb-40 pb-20">
-    <div class="absolute inset-0 z-0 bg-linear-to-t from-black from-5% via-blur-md via-20% to-transparent to-75%"></div>
+<section id="hero-section" class="relative flex flex-col justify-end items-center w-full h-dvh min-h-screen bg-[url(../assets/images/hero_image.webp)] bg-no-repeat md:bg-cover bg-cover bg-center 2xl:pb-20 lg:pb-10 md:pb-40 pb-20">
+    <div class="absolute inset-0 z-0 bg-linear-to-t from-black/50 from-1% via-blur-md via-5% to-transparent to-90%"></div>
     <div class="flex flex-col justify-center items-center gap-15">
         <div id="hero-text" class="flex flex-col md:justify-around justify-center items-center w-auto h-auto bottom-20 left gap-5 z-10">
             <h1 class="font-cormorant lg:text-8xl md:text-7xl text-5xl text-brand-gray-100">This is the main text</h1>
             <h2 class="font-inter text-2xl text-brand-gray-100 text-center">Praesent sed justo interdum, ultrices magna at, tempor erat.</h2>
         </div>
         <div id="hero-cta" class="flex flex-row w-[80%] justify-center items-center gap-10 z-10">
-            <a href="/" id="main-cta" class="flex flex-col justify-center items-center w-40 h-12 bg-brand-darkRed hover:bg-brand-red-700 rounded-sm text-brand-gray-100 hover:transition hover:ease-in-out hover:transform hover:scale-102">Main CTA</a>
-            <a href="/" id="second-cta" class="flex flex-col justify-center items-center w-40 h-12 border border-brand-peru-400 hover:bg-brand-peru-400 hover:border-transparent rounded-sm text-brand-peru-400 hover:text-brand-gray-100">Second CTA</a>
+            <Button type="main" size="lg" link="/">Main</Button>
+            <Button type="second" size="lg" link="/">Second</Button>
         </div>
     </div>
 </section>
