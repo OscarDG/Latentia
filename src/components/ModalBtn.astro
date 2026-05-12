@@ -3,17 +3,17 @@ interface Props {
     size: "sm" | "md" | "lg",
     type: "main" | "second"|"thirth",
     state?: Boolean,
-    link?: string
+    modalId: string
 }
 
-const {size = "md", type = "main", state = true, link} = Astro.props;
+const {size = "md", type = "main", state = true, modalId} = Astro.props;
 
-const base = "flex items-center justify-center rounded-sm font-inter z-10 transition ease-in-out";
+const base = "flex items-center justify-center rounded-sm font-inter z-10 transition ease-in-out cursor-pointer";
 
 const sizes = {
-  sm: "min-w-25 min-h-8 text-sm px-4 py-2",
-  md: "min-w-30 min-h-10 text-md px-4 py-2",
-  lg: "min-w-40 min-h-12 text-lg px-4 py-2",
+  sm: "w-25 h-8 text-sm",
+  md: "w-30 h-10 text-md",
+  lg: "w-40 h-12 text-lg",
 };
 
 const variants = {
@@ -29,7 +29,6 @@ const disabled = !state
   ? "opacity-50 pointer-events-none"
   : "";
 ---
-
-<a href={link} class:list={[base, variants[type], sizes[size], disabled ]}>
-    <slot />
-</a>
+<button data-modal-target={modalId} class:list={[base, variants[type], sizes[size], disabled ]}>
+    <slot></slot>
+</button>

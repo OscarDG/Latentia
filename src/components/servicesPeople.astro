@@ -1,7 +1,8 @@
 ---
 import Button from './Button.astro';
+import ModalBtn from './ModalBtn.astro';
 import type { Service } from '../types/services_types'
-
+import Modal from './Modal.astro';
 interface Props {
     service: Service[],
 }
@@ -18,17 +19,122 @@ const {service}: Props = Astro.props;
         </div>
     </div>
     <div class="flex flex-col md:flex-row flex-wrap w-[80%] md:w-[90%] lg:w-[80%] h-auto md:h-auto justify-around items-center gap-10 padding-5">
-        {service.map((service) => (
+        {service.map((service, index) => (
             <div class="relative flex flex-col w-65 md:w-75 md:h-85 h-70 rounded-sm bg-cover bg-no-repeat bg-center p-3" style={`background-image: url("${service.thumb_link}")`}>
                 <div class="absolute inset-0 z-0 bg-linear-to-t from-black/70"></div>
                 <div class="flex flex-col w-full h-[70%] justify-around">
                     <h2 class="text-white font-inter text-2xl z-10">{service.title}</h2>
-                    <p class="text-white font-inter text-sm z-10">{service.text}</p>
+                    <p class="text-white font-inter text-sm z-10">{service.shortText}</p>
                 </div>
                 <div class="absolute bottom-6 right-6">
-                    <Button type='second' size='sm' link='/'>Main</Button>
+                    <ModalBtn modalId={`service-modal-${index}`} type='second' size='sm'>Main</ModalBtn>
                 </div>
             </div>
+            <Modal id={`service-modal-${index}`} title={service.title}>
+                <h2 class="text-center font-cormorant text-3xl text-white">{service.title}</h2>
+                <p class="text-left font-inter text-lg text-white">{service.mainText}</p>
+                <ul class="flex flex-col justify-around text-white text-lg font-inter p-5 h-auto">
+                    {
+                        service.features.map((feature) => (
+                            <li class="flex flex-row gap-4 items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none" stroke="#C3803C"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M5 12l5 5l10 -10" />
+                                </svg>
+
+                                <span class="leading-snug">{feature}</span>
+                            </li>
+                        ))
+                    }              
+                </ul>
+            </Modal>
           ))}
     </div>
 </section>
+<script>
+//OPEN MODAL
+
+    document.addEventListener("click", (event) => {
+
+        const target = event.target as HTMLElement;
+
+        const trigger = target.closest(
+            "[data-modal-target]"
+        );
+
+        if (!trigger) return;
+
+        const modalId = 
+        trigger.getAttribute("data-modal-target");
+
+        if (!modalId) return;
+
+        const modal = document.getElementById(
+           modalId
+        ) as HTMLDialogElement;
+
+        modal?.showModal();
+
+        document.body.style.overflow = "hidden"
+    });
+
+    //CLOSE BUTTON
+
+    document.addEventListener("click", (event) => {
+
+        const target = event.target as HTMLElement
+
+        const closeBtn = target.closest("[data-modal-close]");
+
+        if(!closeBtn) return;
+
+        const modalId = closeBtn.getAttribute("data-modal-close");
+
+        if(!modalId) return;
+
+        const modal = document.getElementById(modalId) as HTMLDialogElement;
+
+        modal?.close();
+
+        document.body.style.overflow = "auto";
+
+    });
+
+    //BACKDROP CLICK
+    document.querySelectorAll("dialog").forEach((dialog) => {
+
+        dialog.addEventListener("click", (event) => {
+            
+            const rect = dialog.getBoundingClientRect();
+
+            const isInside = 
+                rect.top <= event.clientY &&
+                event.clientY <= rect.bottom &&
+                rect.left <= event.clientX &&
+                event.clientX <= rect.right;
+
+            if (!isInside) {
+
+                (dialog as HTMLDialogElement).close();
+
+                document.body.style.overflow = "auto";
+            }
+        });
+    });
+
+    //ESC
+
+    document.addEventListener("keydown", (event) => {
+
+        if(event.key === "Escape"){
+
+            document.querySelectorAll("dialog").forEach((dialog) => {
+                (dialog as HTMLDialogElement).close();
+            });
+
+            document.body.style.overflow = "auto";
+        }
+    });
+</script>

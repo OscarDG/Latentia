@@ -1,0 +1,35 @@
+---
+import Button from './Button.astro';
+
+interface Props {
+  id: string;
+  title?: string;
+}
+
+const { id, title = "Modal" } = Astro.props;
+---
+
+<dialog id={id} data-modal={id} class="modal-dialog fixed inset-0 md:top-15 top-5 md:left-15 left-5 rounded-sm bg-black/80 items-center justify-center z-50 md:w-[90%] w-full md:h-[90%] h-full">
+  <div class="modal-content flex flex-col w-full h-full justify-center items-center">
+    <header class="modal-header absolute top-0 flex flex-row justify-between items-center h-auto w-full p-10">
+      <button
+        type="button"
+        class="absolute right-5 top-5 group flex cursor-pointer rounded-full bg-brand-peru-300 hover:bg-brand-peru-500 h-10 w-10 justify-center items-center" data-modal-close={id} aria-label="Cerrar modal"
+      >
+        <svg class="group-hover:rotate-90 group-hover:transition group-hover:ease-in-out group-hover:duration-200" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5A3B1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-x">
+	        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+	        <path d="M18 6l-12 12" />
+	        <path d="M6 6l12 12" />
+        </svg>
+      </button>
+    </header>
+    <div class="modal-body flex flex-col justify-between align-center w-[80%] mb-20 gap-10">
+      <slot />
+    </div>
+    <footer class="modal-footer flex flex-row justify-center w-[90%] md:w-[30%]">
+      <slot name="footer">
+        <Button type='main' size='md' link='/'>Solicitar Servicio</Button>
+      </slot>
+    </footer>
+  </div>
+</dialog>
