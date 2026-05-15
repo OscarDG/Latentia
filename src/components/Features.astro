@@ -1,0 +1,78 @@
+---
+---
+<section class="relative flex flex-col w-full h-auto min-h-screen justify-around items-center pt-10 pb-10">
+    <div class="flex flex-col justify-center items-center w-full h-auto gap-5 mb-20">
+        <h2 class="font-cormorant text-brand-peru-500 text-4xl md:text-6xl text-center">Lo que nos caracteriza</h2>
+        <p class="font-inter text-shadow-brand-blue-900 text-xl w-[90%] md:w-[50%] text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    <div class="flex flex-col md:flex-col lg:flex-row justify-center items-center w-[90%] md:w-[95%] md:gap-x-5 gap-x-0 lg:gap-y-0 md:gap-y-10 gap-y-10">
+        <div id="features-video" class=" w-90 lg:w-[45%] md:w-[90%] h-100 md:h-140 lg:h-130 rounded-sm overflow-hidden">
+            <iframe 
+                src="https://www.youtube.com/embed/3i76Ow2Nw4E?start=481"
+                title="Youtube video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                class="w-full h-full"
+            />
+        </div>
+        <div id="features-cards" class="flex flex-col items-center justify-center md:flex-row lg:flex-row align-middle flex-wrap lg:w-[50%] md:w-[90%] w-[90%] h-auto md:h-auto lg:h-140 p-1 gap-4 md:gap-6 lg:gap-4">
+            <div class="flex flex-row md:flex-col lg:flex-col justify-ariund items-center w-full md:w-[35%] lg:w-[42%] h-[25%] md:h-[48%] lg:h-[48%] md:gap-y-2 bg-white rounded-sm p-3 drop-shadow-xs hover:drop-shadow-sm transition ease-in hover:-translate-y-1" card-animate>
+                <div class="w-40 md:w-40 lg:w-[75%] h-30 md:h-30 lg:h-[70%] rounded-sm bg-brand-blue-200">
+                </div>
+                <div class="flex flex-col justify-around items-center w-[55%] md:w-[85%] h-[40%] md:h-[30%] font-inter">
+                    <h3 class="font-bold text-brand-darkRed">Feature 1</h3>
+                    <p class="text-center text-sm text-brand-blue-900">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+            <div class="flex flex-row md:flex-col lg:flex-col justify-ariund items-center w-full md:w-[35%] lg:w-[42%] h-[25%] md:h-[48%] lg:h-[48%] md:gap-y-2 bg-white rounded-sm p-3 drop-shadow-xs hover:drop-shadow-sm transition ease-in hover:-translate-y-1" card-animate>
+                <div class="w-40 md:w-40 lg:w-[75%] h-30 md:h-30 lg:h-[70%] rounded-sm bg-brand-blue-200">
+                </div>
+                <div class="flex flex-col justify-around items-center w-[55%] md:w-[85%] h-[40%] md:h-[30%] font-inter">
+                    <h3 class="font-bold text-brand-darkRed">Feature 2</h3>
+                    <p class="text-center text-sm text-brand-blue-900">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                </div>
+            </div>
+            <div class="flex flex-row md:flex-col lg:flex-col justify-ariund items-center w-full md:w-[35%] lg:w-[42%] h-[25%] md:h-[48%] lg:h-[48%] md:gap-y-2 bg-white rounded-sm p-3 drop-shadow-xs hover:drop-shadow-sm transition ease-in hover:-translate-y-1" card-animate>
+                <div class="w-40 md:w-40 lg:w-[75%] h-30 md:h-30 lg:h-[70%] rounded-sm bg-brand-blue-200"></div>
+                <div class="flex flex-col justify-around items-center w-[55%] md:w-[85%] h-[40%] md:h-[30%] font-inter">
+                    <h3 class="font-bold text-brand-darkRed">Feature 3</h3>
+                    <p class="text-center text-sm text-brand-blue-900">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+            <div class="flex flex-row md:flex-col lg:flex-col justify-ariund items-center w-full md:w-[35%] lg:w-[42%] h-[25%] md:h-[48%] lg:h-[48%] md:gap-y-2 bg-white rounded-sm p-3 drop-shadow-xs hover:drop-shadow-sm transition ease-in hover:-translate-y-1" card-animate>
+                <div class="w-40 md:w-40 lg:w-[75%] h-30 md:h-30 lg:h-[70%] rounded-sm bg-brand-blue-200"></div>
+                <div class="flex flex-col justify-around items-center w-[55%] md:w-[85%] h-[40%] md:h-[30%] font-inter">
+                    <h3 class="font-bold text-brand-darkRed">Feature 4</h3>
+                    <p class="text-center text-sm text-brand-blue-900">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const cards = gsap.utils.toArray("[card-animate]") as HTMLElement[];
+
+  cards.forEach((card) => {
+
+    gsap.fromTo(
+      card,
+      { y: 120 },
+      {
+        y: 0,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: card,
+          start: "top 90%",   // animation starts when card enters viewport
+          end: "top 40%",     // animation completes here
+          scrub: 1,           // ties animation to scroll (1 = slight smoothing)
+          toggleActions: "play reverse play reverse", // in and out
+        },
+      }
+    );
+  });
+</script>

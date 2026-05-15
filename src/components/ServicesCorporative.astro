@@ -1,26 +1,27 @@
 ---
-import Button from './Button.astro';
-import ModalBtn from './ModalBtn.astro';
-import type { Service } from '../types/services_types'
-import Modal from './Modal.astro';
+import Button from "./Button.astro"
+import Modal from "./Modal.astro";
+import ModalBtn from "./ModalBtn.astro";
+import type { Service } from '../types/services_types';
+
 interface Props {
     service: Service[],
 }
 
 const {service}: Props = Astro.props;
 ---
-<section id="services-people" class="flex flex-col justify-around items-center w-full h-auto min-h-screen gap-0 md:gap-10 pt-20 pb-20">
+<section id="services-corporative" class="flex flex-col justify-around items-center w-full h-auto min-h-screen gap-0 md:gap-10 pt-10 pb-20">
     <div id="services-people--maincard" class="flex flex-col md:flex-row w-[90%] md:w-[85%] lg:w-[80%] h-150 md:h-90 lg:h-115">
-        <div class="w-full md:w-[50%] h-[40%] md:h-full bg-[url(../assets/images/servicePeople.webp)] bg-no-repeat bg-cover rounded-tl-sm rounded-tr-sm md:rounded-br-none md:rounded-tr-none md:rounded-bl-sm"></div>
-        <div class="flex flex-col w-full md:w-[50%] h-80 md:h-full justify-around items-start rounded-br-sm rounded-bl-sm md:rounded-tr-sm md:rounded-tl-none md:rounded-br-sm md:rounded-bl-none bg-white drop-shadow-sm pl-5 md:pl-8 pr-5 md:pr-0 pt-5 md:pt-0 pb-2">
-            <h2 class="text-3xl md:text-4xl text-brand-peru-500 font-cormorant">Servicios personales</h2>
+        <div class="order-2 md:order-1 flex flex-col w-full md:w-[50%] h-80 md:h-full justify-around items-start bg-white drop-shadow-sm rounded-br-sm rounded-bl-sm md:rounded-tl-sm md:rounded-tr-none md:rounded-bl-sm md:rounded-br-none pl-5 md:pl-8 pr-5 md:pr-0 pt-5 md:pt-0 pb-2">
+            <h2 class="text-3xl md:text-4xl text-brand-peru-500 font-cormorant">Servicios Corporativos</h2>
             <p class=" w-full md:w-[80%] text-brand-gray-700 font-inter text-sm md:text-md">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim at odio a ultrices. Duis non imperdiet neque. In hac habitasse platea dictumst. Fusce eu tempus augue. Mauris urna mauris, luctus quis quam ac, placerat luctus dolor. Maecenas pulvinar est diam, ac lobortis quam tincidunt vitae. Phasellus feugiat quis diam eget commodo. Nam sit amet ultricies arcu.</p>
             <Button type='second' size='md' link='/'>Second</Button>
         </div>
+        <div class="order-1 md:order-2 w-full md:w-[50%] h-[40%] md:h-full bg-[url(../assets/images/servicePeople.webp)] bg-no-repeat bg-cover rounded-tl-sm rounded-tr-sm md:rounded-bl-none md:rounded-tl-none md:rounded-tr-sm md:rounded-br-sm"></div>
     </div>
     <div id="services-people--secondCards" class="flex flex-col md:flex-row flex-wrap w-[80%] md:w-[90%] lg:w-[80%] h-auto md:h-auto justify-around items-center gap-10 padding-5">
-        {service.map((service, index) => service.type === "Persons" && (
-            <div class="relative flex flex-col w-65 md:w-75 md:h-85 h-70 rounded-sm bg-cover bg-no-repeat bg-center p-3" style={`background-image: url("${service.thumb_link}")`} people-animate>
+        {service.map((service, index) => service.type === "Corporative" && (
+            <div class="relative flex flex-col w-65 md:w-75 md:h-85 h-70 rounded-sm md:rounded-sm bg-cover bg-no-repeat bg-center p-3 overflow-hidden" style={`background-image: url("${service.thumb_link}")`} corporate-animate>
                 <div class="absolute inset-0 z-0 bg-linear-to-t from-black/70 rounded-sm"></div>
                 <div class="flex flex-col w-full h-[70%] justify-around">
                     <h2 class="text-white font-inter text-2xl z-10">{service.title}</h2>
@@ -31,7 +32,7 @@ const {service}: Props = Astro.props;
                 </div>
             </div>
             <Modal id={`service-modal-${index}`} title={service.title}>
-                <h2 class="text-center font-cormorant text-3xl text-brand-peru-500">{service.title}</h2>
+                <h2 class="text-center font-cormorant text-3xl text-brand-gray-700">{service.title}</h2>
                 <p class="text-left font-inter text-lg text-brand-gray-700">{service.mainText}</p>
                 <ul class="flex flex-col justify-around text-brand-gray-700 text-lg font-inter p-5 h-auto">
                     {
@@ -143,15 +144,14 @@ const {service}: Props = Astro.props;
 
     gsap.registerPlugin(ScrollTrigger);
 
-    const cards = gsap.utils.toArray("[people-animate]") as HTMLElement[];
+    const cards = gsap.utils.toArray("[corporate-animate]") as HTMLElement[];
 
     cards.forEach((card) => {
 
         gsap.fromTo(
         card,
-        { x: 90, y:0, opacity: 0 },
+        { x: -90, opacity: 0 },
         {
-            y:0,
             x: 0,
             opacity: 1,
             ease: "power2.out",

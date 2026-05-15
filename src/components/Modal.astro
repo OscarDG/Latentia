@@ -9,7 +9,7 @@ interface Props {
 const { id, title = "Modal" } = Astro.props;
 ---
 
-<dialog id={id} data-modal={id} class="modal-dialog fixed inset-0 md:top-15 top-5 md:left-15 left-5 rounded-sm bg-black/80 items-center justify-center z-50 md:w-[90%] w-full md:h-[90%] h-full">
+<dialog id={id} data-modal={id} class="modal-dialog fixed inset-0 md:top-20 top-5 md:left-32 left-5 pt-10 pb-10 rounded-sm bg-brand-gray-100 items-center justify-center z-50 md:w-[80%] w-full md:h-[80%] h-full drop-shadow-gray-500 drop-shadow-md transition-all ease-in-out animate-show">
   <div class="modal-content flex flex-col w-full h-full justify-center items-center">
     <header class="modal-header absolute top-0 flex flex-row justify-between items-center h-auto w-full p-10">
       <button
@@ -23,7 +23,7 @@ const { id, title = "Modal" } = Astro.props;
         </svg>
       </button>
     </header>
-    <div class="modal-body flex flex-col justify-between align-center w-[80%] mb-20 gap-10">
+    <div class="modal-body flex flex-col justify-between align-center w-[80%] mb-10 gap-10">
       <slot />
     </div>
     <footer class="modal-footer flex flex-row justify-center w-[90%] md:w-[30%]">

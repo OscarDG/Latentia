@@ -1,4 +1,5 @@
 export type Service = {
+    type: string;
     title: string,
     thumb_link: string,
     shortText: string,
