@@ -5,6 +5,7 @@ import ServicesPeople from "../components/ServicesPeople.astro";
 import ServicesCorporative from "../components/ServicesCorporative.astro";
 import Features from "../components/Features.astro";
 import Team from "../components/Team.astro";
+import BannerHome from "../components/BannerHome.astro";
 import { services } from "../data/services"
 import { team } from "../data/team";
 const title = "Latentia";
@@ -15,4 +16,5 @@ const title = "Latentia";
     <ServicesCorporative service={services}/>
     <Features />
     <Team team={team}/>
+    <BannerHome />
 </MainLayout>	
