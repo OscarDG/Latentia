@@ -150,15 +150,16 @@ const {service}: Props = Astro.props;
 
         gsap.fromTo(
         card,
-        { x: -90, opacity: 0 },
+        { x: -85, opacity: 0 },
         {
             x: 0,
             opacity: 1,
-            ease: "power2.out",
+            ease: "circ.in",
             scrollTrigger: {
             trigger: card,
             start: "top 90%",   // animation starts when card enters viewport
-            end: "top 40%",     // animation completes here
+            end: "top 40%",
+            once: true,     // animation completes here
             scrub: 1,           // ties animation to scroll (1 = slight smoothing)
             toggleActions: "play reverse play reverse", // in and out
             },

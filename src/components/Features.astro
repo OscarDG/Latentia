@@ -20,7 +20,7 @@
                 <div class="w-40 md:w-40 lg:w-[75%] h-30 md:h-30 lg:h-[70%] rounded-sm bg-brand-blue-200">
                 </div>
                 <div class="flex flex-col justify-around items-center w-[55%] md:w-[85%] h-[40%] md:h-[30%] font-inter">
-                    <h3 class="font-bold text-brand-darkRed">Feature 1</h3>
+                    <h3 class="font-bold text-brand-red-500">Feature 1</h3>
                     <p class="text-center text-sm text-brand-blue-900">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
             </div>
@@ -28,21 +28,21 @@
                 <div class="w-40 md:w-40 lg:w-[75%] h-30 md:h-30 lg:h-[70%] rounded-sm bg-brand-blue-200">
                 </div>
                 <div class="flex flex-col justify-around items-center w-[55%] md:w-[85%] h-[40%] md:h-[30%] font-inter">
-                    <h3 class="font-bold text-brand-darkRed">Feature 2</h3>
+                    <h3 class="font-bold text-brand-red-500">Feature 2</h3>
                     <p class="text-center text-sm text-brand-blue-900">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
                 </div>
             </div>
             <div class="flex flex-row md:flex-col lg:flex-col justify-ariund items-center w-full md:w-[35%] lg:w-[42%] h-[25%] md:h-[48%] lg:h-[48%] md:gap-y-2 bg-white rounded-sm p-3 drop-shadow-xs hover:drop-shadow-sm transition ease-in hover:-translate-y-1" card-animate>
                 <div class="w-40 md:w-40 lg:w-[75%] h-30 md:h-30 lg:h-[70%] rounded-sm bg-brand-blue-200"></div>
                 <div class="flex flex-col justify-around items-center w-[55%] md:w-[85%] h-[40%] md:h-[30%] font-inter">
-                    <h3 class="font-bold text-brand-darkRed">Feature 3</h3>
+                    <h3 class="font-bold text-brand-red-500">Feature 3</h3>
                     <p class="text-center text-sm text-brand-blue-900">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
             </div>
             <div class="flex flex-row md:flex-col lg:flex-col justify-ariund items-center w-full md:w-[35%] lg:w-[42%] h-[25%] md:h-[48%] lg:h-[48%] md:gap-y-2 bg-white rounded-sm p-3 drop-shadow-xs hover:drop-shadow-sm transition ease-in hover:-translate-y-1" card-animate>
                 <div class="w-40 md:w-40 lg:w-[75%] h-30 md:h-30 lg:h-[70%] rounded-sm bg-brand-blue-200"></div>
                 <div class="flex flex-col justify-around items-center w-[55%] md:w-[85%] h-[40%] md:h-[30%] font-inter">
-                    <h3 class="font-bold text-brand-darkRed">Feature 4</h3>
+                    <h3 class="font-bold text-brand-red-500">Feature 4</h3>
                     <p class="text-center text-sm text-brand-blue-900">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
             </div>
@@ -64,12 +64,14 @@
       { y: 120 },
       {
         y: 0,
-        ease: "power2.out",
+        duration: 0.7,
+        ease: "none",
         scrollTrigger: {
           trigger: card,
           start: "top 90%",   // animation starts when card enters viewport
-          end: "top 40%",     // animation completes here
-          scrub: 1,           // ties animation to scroll (1 = slight smoothing)
+          end: "top 90%",
+          once: true,     // animation completes here
+          scrub: 0.8,           // ties animation to scroll (1 = slight smoothing)
           toggleActions: "play reverse play reverse", // in and out
         },
       }

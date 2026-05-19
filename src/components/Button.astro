@@ -3,17 +3,18 @@ interface Props {
     size: "sm" | "md" | "lg",
     type: "main" | "second"|"thirth",
     state?: Boolean,
-    link?: string
+    link?: string,
+    clase?: string
 }
 
-const {size = "md", type = "main", state = true, link} = Astro.props;
+const {size = "md", type = "main", state = true, link, clase} = Astro.props;
 
-const base = "flex items-center justify-center rounded-sm font-inter z-10 transition ease-in-out";
+const base = "flex items-center justify-center items-center rounded-sm font-inter z-10 transition ease-in-out cursor-pointer gap-2";
 
 const sizes = {
   sm: "min-w-25 min-h-8 text-sm px-4 py-2",
-  md: "min-w-30 min-h-10 text-md px-4 py-2",
-  lg: "min-w-40 min-h-12 text-lg px-4 py-2",
+  md: "min-w-30 max-w-33 min-h-10 text-md px-4 py-2",
+  lg: "min-w-40 max-w-43 min-h-12 text-lg px-4 py-2",
 };
 
 const variants = {
@@ -30,6 +31,6 @@ const disabled = !state
   : "";
 ---
 
-<a href={link} class:list={[base, variants[type], sizes[size], disabled ]}>
+<a href={link} class:list={[clase, base, variants[type], sizes[size], disabled ]}>
     <slot />
 </a>

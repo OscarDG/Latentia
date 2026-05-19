@@ -4,7 +4,9 @@ import HeroSection from "../components/HeroSection.astro";
 import ServicesPeople from "../components/ServicesPeople.astro";
 import ServicesCorporative from "../components/ServicesCorporative.astro";
 import Features from "../components/Features.astro";
+import Team from "../components/Team.astro";
 import { services } from "../data/services"
+import { team } from "../data/team";
 const title = "Latentia";
 ---
 <MainLayout title={title}>
@@ -12,4 +14,5 @@ const title = "Latentia";
     <ServicesPeople service={services}/>
     <ServicesCorporative service={services}/>
     <Features />
+    <Team team={team}/>
 </MainLayout>	
