@@ -11,7 +11,6 @@ export const links: Link[] = [
     },
     {
         label: "Servicios",
-        href: "/servicios",
     },
     {
         label: "Contacto",

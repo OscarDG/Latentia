@@ -10,24 +10,24 @@ interface Props {
 const {links}: Props = Astro.props;
 const currentPath = Astro.url.pathname;
 ---
-<header class="fixed flex flex-row justify-between items-center w-full h-10 p-8 bg-[#F2F2F2] z-50">
-    <div class="flex flex-row justify-center items-center w-15 h-10">
+<header class="fixed flex flex-row md:justify-between justify-between items-center w-full h-10 pt-8 pb-8 bg-[#F2F2F2] z-50">
+    <div class="flex flex-row justify-center items-center w-[10%] md:w-[20%] h-10 ml-5">
         <img src="/logo.svg" alt="Logo" class="w-10 h-10" />
     </div>
-    <div class="flex flex-row md:justify-between justify-end items-center w-120 h-auto p-2">
-        <div id="menuTrigger" class="md:hidden flex flex-col justify-between items-center w-15 h-12 mr-12 p-1 hover:cursor-pointer">
+    <div class="flex flex-row justify-around items-center w-[65%] md:w-[50%] h-auto p-2 gap-2">
+        <div id="menuTrigger" class="md:hidden flex flex-col justify-between items-center w-15 h-12 mr-0 p-1 hover:cursor-pointer">
             <span class="w-[90%] h-1 bg-brand-gray-700 rounded-2xl"></span>
             <span class="w-[90%] h-1 bg-brand-gray-700 rounded-2xl"></span>
             <span class="w-[90%] h-1 bg-brand-gray-700 rounded-2xl"></span>
             <span class="w-[90%] h-1 bg-brand-gray-700 rounded-2xl"></span>
         </div>
         <nav class="relative flex flex-row justify-between items-center h-10">
-            <ul id="mobileMenu" class="md:relative absolute md:flex hidden md:flex-row flex-col md:justify-between md:items-center items-center md:w-full w-80 md:h-12 h-50 md:right-0 -right-20 md:top-0 top-20 gap-5 p-5 md:bg-transparent bg-brand-gray-100/80 md:rounded-none rounded-2xl">
+            <ul id="mobileMenu" class="md:relative absolute md:flex hidden md:flex-row flex-col justify-center md:justify-between md:items-center items-center md:w-full w-70 md:h-12 h-80 md:right-0 right-0 md:top-0 top-13 gap-5 p-5 md:bg-transparent bg-brand-gray-100/90 md:rounded-none rounded-2xl">
                 {links.map((link) => (
                     <li id={link.label === "Servicios" ? "servicesLink" : undefined} class="list-none flex-row justify-center items-center text-center"><a href={link.href} class:list={link.href === currentPath ? ["relative no-underline font-inter", "after:absolute after:left-0 after:bottom-0", "after:h-0.5 after:rounded-2xl after:w-full after:content-['']", "after:bg-brand-peru-400", "after:scale-x-0 after:origin-left", "after:transition-transform after:duration-300", "hover:after:scale-x-100", "text-brand-peru-400 hover:text-brand-peru-600", "pb-1"] : ["relative no-underline font-inter", "after:absolute after:left-0 after:bottom-0", "after:h-0.5 after:rounded-2xl after:w-full after:content-['']", "after:bg-brand-red-800", "after:scale-x-0 after:origin-left", "after:transition-transform after:duration-300", "hover:after:scale-x-100", "text-brand-red-800", "pb-1"]}>{link.label}</a></li>
                 ))} 
             </ul>
-            <ul id="submenu" class="absolute md:top-10 top-45 md:left-40 -right-3 hidden flex-col justify-center md:items-start items-center w-45 h-25 gap-5 p-2 md:bg-brand-gray-100/80 bg-brand-gray-100 rounded-sm">
+            <ul id="submenu" class="absolute md:top-10 top-50 md:left-40 -right-30 hidden flex-col justify-center md:items-start items-center w-45 h-25 gap-5 p-2 md:bg-brand-gray-100/80 bg-brand-gray-100 rounded-sm">
                 <li class="text-sm"><a href="/" target="_blank" class = "relative no-underline font-inter after:absolute after:left-0 after:bottom-0 after:h-0.5 after:rounded-2xl after:w-full after:content-[''] after:bg-brand-peru-400 after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100 text-brand-red-900 hover:text-brand-peru-600 pb-1">Servicios profesionales</a></li>
                 <li class="text-sm"><a href="/" target="_blank" class = "relative no-underline font-inter after:absolute after:left-0 after:bottom-0 after:h-0.5 after:rounded-2xl after:w-full after:content-[''] after:bg-brand-peru-400 after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100 text-brand-red-900 hover:text-brand-peru-600 pb-1">Servicios personas</a></li>
             </ul>
@@ -57,5 +57,5 @@ const currentPath = Astro.url.pathname;
   trigger3?.addEventListener("mouseleave", () => {
     submenu?.classList.remove("flex")
     submenu?.classList.add("hidden")
-  })
+  });
 </script>
