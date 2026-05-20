@@ -12,7 +12,7 @@ const {service}: Props = Astro.props;
 <section id="services-people" class="flex flex-col justify-around items-center w-full h-auto min-h-screen gap-0 md:gap-10 pt-20 pb-20">
     <div id="services-people--maincard" class="flex flex-col md:flex-row w-[90%] md:w-[85%] lg:w-[80%] h-150 md:h-90 lg:h-115">
         <div class="w-full md:w-[50%] h-[40%] md:h-full bg-[url(../assets/images/servicePeople.webp)] bg-no-repeat bg-cover rounded-tl-sm rounded-tr-sm md:rounded-br-none md:rounded-tr-none md:rounded-bl-sm"></div>
-        <div class="flex flex-col w-full md:w-[50%] h-80 md:h-full justify-around items-start rounded-br-sm rounded-bl-sm md:rounded-tr-sm md:rounded-tl-none md:rounded-br-sm md:rounded-bl-none bg-white drop-shadow-sm pl-5 md:pl-8 pr-5 md:pr-0 pt-5 md:pt-0 pb-2">
+        <div class="flex flex-col w-full md:w-[50%] h-auto min-h-80 md:h-full justify-around items-start rounded-br-sm rounded-bl-sm md:rounded-tr-sm md:rounded-tl-none md:rounded-br-sm md:rounded-bl-none bg-white drop-shadow-sm pl-5 md:pl-8 pr-5 md:pr-0 pt-5 md:pt-0 pb-2">
             <h2 class="text-3xl md:text-4xl text-brand-peru-500 font-cormorant">Servicios personales</h2>
             <p class=" w-full md:w-[80%] text-brand-gray-700 font-inter text-sm md:text-md">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim at odio a ultrices. Duis non imperdiet neque. In hac habitasse platea dictumst. Fusce eu tempus augue. Mauris urna mauris, luctus quis quam ac, placerat luctus dolor. Maecenas pulvinar est diam, ac lobortis quam tincidunt vitae. Phasellus feugiat quis diam eget commodo. Nam sit amet ultricies arcu.</p>
             <Button type='second' size='md' link='/'>Solicitar servicio</Button>
@@ -138,32 +138,4 @@ const {service}: Props = Astro.props;
             document.body.style.overflow = "auto";
         }
     });
-
-    //ANIMATION
-
-    /*gsap.registerPlugin(ScrollTrigger);
-
-    const cards = gsap.utils.toArray("[people-animate]") as HTMLElement[];
-
-    cards.forEach((card) => {
-
-        gsap.fromTo(
-        card,
-        { x: 80, y:0, opacity: 0 },
-        {
-            y:0,
-            x: 0,
-            opacity: 1,
-            ease: "circ.in",
-            scrollTrigger: {
-            trigger: card,
-            start: "top 90%",   // animation starts when card enters viewport
-            end: "top 40%", 
-            once: true,    // animation completes here
-            scrub: 1,           // ties animation to scroll (1 = slight smoothing)
-            toggleActions: "play reverse play reverse", // in and out
-            },
-        }
-        );
-    });*/
 </script>
