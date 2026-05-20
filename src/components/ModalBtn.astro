@@ -11,9 +11,9 @@ const {size = "md", type = "main", state = true, modalId} = Astro.props;
 const base = "flex items-center justify-center rounded-sm font-inter z-10 transition ease-in-out cursor-pointer";
 
 const sizes = {
-  sm: "w-25 h-8 text-sm",
-  md: "w-30 h-10 text-md",
-  lg: "w-40 h-12 text-lg",
+  sm: "min-w-25 h-8 text-sm px-4 py-2",
+  md: "min-w-30 h-10 text-md px-4 py-2",
+  lg: "min-w-40 h-12 text-lg",
 };
 
 const variants = {

@@ -15,7 +15,7 @@ const {service}: Props = Astro.props;
         <div class="order-2 md:order-1 flex flex-col w-full md:w-[50%] h-80 md:h-full justify-around items-start bg-white drop-shadow-sm rounded-br-sm rounded-bl-sm md:rounded-tl-sm md:rounded-tr-none md:rounded-bl-sm md:rounded-br-none pl-5 md:pl-8 pr-5 md:pr-0 pt-5 md:pt-0 pb-2">
             <h2 class="text-3xl md:text-4xl text-brand-peru-500 font-cormorant">Servicios Corporativos</h2>
             <p class=" w-full md:w-[80%] text-brand-gray-700 font-inter text-sm md:text-md">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim at odio a ultrices. Duis non imperdiet neque. In hac habitasse platea dictumst. Fusce eu tempus augue. Mauris urna mauris, luctus quis quam ac, placerat luctus dolor. Maecenas pulvinar est diam, ac lobortis quam tincidunt vitae. Phasellus feugiat quis diam eget commodo. Nam sit amet ultricies arcu.</p>
-            <Button type='second' size='md' link='/'>Second</Button>
+            <Button type='second' size='md' link='/'>Solicitar servicio</Button>
         </div>
         <div class="order-1 md:order-2 w-full md:w-[50%] h-[40%] md:h-full bg-[url(../assets/images/servicePeople.webp)] bg-no-repeat bg-cover rounded-tl-sm rounded-tr-sm md:rounded-bl-none md:rounded-tl-none md:rounded-tr-sm md:rounded-br-sm"></div>
     </div>
@@ -28,7 +28,7 @@ const {service}: Props = Astro.props;
                     <p class="text-white font-inter text-sm z-10">{service.shortText}</p>
                 </div>
                 <div class="absolute bottom-6 right-6">
-                    <ModalBtn modalId={`service-modal-${index}`} type='second' size='sm'>Main</ModalBtn>
+                    <ModalBtn modalId={`service-modal-${index}`} type='second' size='sm'>Ver más</ModalBtn>
                 </div>
             </div>
             <Modal id={`service-modal-${index}`} title={service.title}>
