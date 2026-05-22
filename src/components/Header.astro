@@ -27,7 +27,7 @@ const currentPath = Astro.url.pathname;
                     <li id={link.label === "Servicios" ? "servicesLink" : undefined} class="list-none flex-row justify-center items-center text-center"><a href={link.href} class:list={link.href === currentPath ? ["relative no-underline font-inter", "after:absolute after:left-0 after:bottom-0", "after:h-0.5 after:rounded-2xl after:w-full after:content-['']", "after:bg-brand-peru-400", "after:scale-x-0 after:origin-left", "after:transition-transform after:duration-300", "hover:after:scale-x-100", "text-brand-peru-400 hover:text-brand-peru-600", "pb-1"] : ["relative no-underline font-inter", "after:absolute after:left-0 after:bottom-0", "after:h-0.5 after:rounded-2xl after:w-full after:content-['']", "after:bg-brand-red-800", "after:scale-x-0 after:origin-left", "after:transition-transform after:duration-300", "hover:after:scale-x-100", "text-brand-red-800", "pb-1"]}>{link.label}</a></li>
                 ))} 
             </ul>
-            <ul id="submenu" class="absolute md:top-10 top-50 md:left-40 -right-30 hidden flex-col justify-center md:items-start items-center w-45 h-25 gap-5 p-2 md:bg-brand-gray-100/80 bg-brand-gray-100 rounded-sm">
+            <ul id="submenu" class="absolute md:top-10 top-45 md:left-40 -right-30 hidden flex-col justify-center md:items-start items-center w-45 h-25 gap-5 p-2 md:bg-brand-gray-100/80 bg-brand-gray-100 rounded-sm">
                 <li class="text-sm"><a href="/" target="_blank" class = "relative no-underline font-inter after:absolute after:left-0 after:bottom-0 after:h-0.5 after:rounded-2xl after:w-full after:content-[''] after:bg-brand-peru-400 after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100 text-brand-red-900 hover:text-brand-peru-600 pb-1">Servicios profesionales</a></li>
                 <li class="text-sm"><a href="/" target="_blank" class = "relative no-underline font-inter after:absolute after:left-0 after:bottom-0 after:h-0.5 after:rounded-2xl after:w-full after:content-[''] after:bg-brand-peru-400 after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100 text-brand-red-900 hover:text-brand-peru-600 pb-1">Servicios personas</a></li>
             </ul>
@@ -42,7 +42,8 @@ const currentPath = Astro.url.pathname;
   const trigger2 = document.getElementById("servicesLink")
   const trigger3 = document.getElementById("submenu")
   const menu = document.getElementById("mobileMenu");
-  const submenu = document.getElementById("submenu")
+  const submenu = document.getElementById("submenu");
+  const servicesLink = document.getElementById("servicesLink");
 
   trigger?.addEventListener("click", () => {
     menu?.classList.toggle("hidden");
@@ -57,5 +58,20 @@ const currentPath = Astro.url.pathname;
   trigger3?.addEventListener("mouseleave", () => {
     submenu?.classList.remove("flex")
     submenu?.classList.add("hidden")
+  });
+
+  servicesLink?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const isHidden = submenu?.classList.contains("hidden");
+    submenu?.classList.toggle("hidden", !isHidden);
+    submenu?.classList.toggle("flex", isHidden);
+  });
+    document.addEventListener("click", (e) => {
+    const target = e.target as Node | null;
+    const clickedInside = (servicesLink?.contains(target) ?? false) || (submenu?.contains(target) ?? false);
+    if (!clickedInside) {
+      submenu?.classList.add("hidden");
+      submenu?.classList.remove("flex");
+    }
   });
 </script>
