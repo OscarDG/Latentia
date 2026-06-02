@@ -1,0 +1,49 @@
+---
+import type { Team } from '../types/team_types'
+import {Image} from 'astro:assets'
+
+interface Props {
+    team: Team[]
+}
+
+const {team}: Props = Astro.props
+
+const images = import.meta.glob<{ default: ImageMetadata }>('../assets/team/*.{jpg,png,webp,jpeg}', { eager: true })
+
+const teamWithImages = await Promise.all(
+    team.filter((prof) => prof.available).map(async (prof) => {
+        const imageModule = images[`../assets/team/${prof.thumb_link}`]
+        const resolvedImage = imageModule ? (await imageModule()).default : null
+        return { ...prof, resolvedImage }
+    })
+)
+---
+
+<section class="flex flex-col items-center w-full h-full min-h-screen mt-10 mb-10 before:w-[80%] before:h-[0.5px] before:bg-gray-200 before:mb-10">
+    <h1 class="w-[70%] h-[10%] font-cormorant text-4xl text-center text-brand-red-600 mb-20 md:mb-30">Conoce a nuestro equipo</h1>
+    <div class="flex flex-col w-full h-auto max-h-[90%] gap-10 justify-center items-center">
+        {teamWithImages.map((prof) => (
+            <div class="flex flex-col md:flex-row w-[90%] h-auto md:h-120 gap-2 md:gap-20 items-center justify-center md:after:w-0 after:w-[80%] after:h-[0.5px] after:bg-brand-blue-100/50 after:mb-10">
+                <div class="relative flex flex-col items-center w-full md:w-[30%] h-auto">
+                    {prof.resolvedImage ? (
+                        <Image src={prof.resolvedImage.src} alt={prof.name} width={400} height={400} class="rounded-sm object-cover max-h-100" />
+                    ) : (
+                        <img src={prof.thumb_link} alt={prof.name} class="rounded-sm object-cover w-[80%] md:w-full h-full max-h-80 md:max-h-100" />
+                    )}
+                </div>
+                <div class="flex flex-col justify-between items-center w-full md:w-[40%] h-full pt-10 pb-10 gap-10">
+                    <h2 class="w-full font-cormorant text-center md:text-left text-3xl text-brand-red-500">{prof.name}</h2>
+                    <p class="font-inter text-md text-gray-500 text-center md:text-left">{prof.description}</p>
+                    <div class="flex flex-row items-center md:justify-start justify-center w-full md:-[40%] gap-5">
+                        {prof.areas.map((area) => (
+                            <span class="w-auto h-auto pt-1.5 pb-1.5 pl-3 pr-3 rounded-sm bg-brand-peru-400 text-white text-sm">{area}</span>
+                        ))}
+                    </div>
+                    <div class="flex flex-row items-center justify-center md:justify-start w-full gap-5">
+                        <button class="w-[40%] h-auto pt-2 pb-2 pl-3 pr-3 rounded-sm bg-brand-red-600 text-white text-sm hover:bg-brand-red-500 transition duration-300 cursor-pointer hover:ease-in hover:transform hover:scale-102">Pedir cita</button>
+                    </div>
+                </div>
+            </div>
+        ))}
+    </div>
+</section>
