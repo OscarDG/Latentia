@@ -20,7 +20,7 @@ const teamWithImages = await Promise.all(
 ---
 
 <section class="flex flex-col items-center w-full h-full min-h-screen mt-10 mb-10 before:w-[80%] before:h-[0.5px] before:bg-gray-200 before:mb-10">
-    <h1 class="w-[70%] h-[10%] font-cormorant text-4xl text-center text-brand-red-600 mb-20 md:mb-30">Conoce a nuestro equipo</h1>
+    <h1 class="w-[70%] h-[10%] font-cormorant text-4xl md:text-6xl text-center text-brand-red-600 mb-20 md:mb-30">Conoce a nuestro equipo</h1>
     <div class="flex flex-col w-full h-auto max-h-[90%] gap-10 justify-center items-center">
         {teamWithImages.map((prof) => (
             <div class="flex flex-col md:flex-row w-[90%] h-auto md:h-120 gap-2 md:gap-20 items-center justify-center md:after:w-0 after:w-[80%] after:h-[0.5px] after:bg-brand-blue-100/50 after:mb-10">
