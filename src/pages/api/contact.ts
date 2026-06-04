@@ -1,4 +1,6 @@
 import type { APIRoute } from 'astro';
+import { readFileSync } from 'fs';
+import { resolve } from 'path';
 import { PrismaClient } from '@prisma/client';
 import { PrismaNeon } from '@prisma/adapter-neon';
 import { neonConfig } from '@neondatabase/serverless';
@@ -8,10 +10,10 @@ neonConfig.webSocketConstructor = ws;
 
 function getDatabaseUrl(): string {
   if (process.env.DATABASE_URL) return process.env.DATABASE_URL;
-
-  // On Vercel there is usually no project-level `.env` file on disk.
-  // Fail fast with a clear message if the env var isn't configured.
-  throw new Error('DATABASE_URL environment variable is required');
+  const envContent = readFileSync(resolve(process.cwd(), '.env'), 'utf-8');
+  const match = envContent.match(/^DATABASE_URL=["']?([^"'\n]+)["']?/m);
+  if (match?.[1]) return match[1];
+  throw new Error('DATABASE_URL not found');
 }
 
 export const POST: APIRoute = async ({ request }) => {
@@ -48,4 +50,3 @@ export const POST: APIRoute = async ({ request }) => {
     await prisma.$disconnect();
   }
 };
-
