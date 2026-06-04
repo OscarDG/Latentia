@@ -9,19 +9,16 @@ import ws from 'ws';
 neonConfig.webSocketConstructor = ws;
 
 function getDatabaseUrl(): string {
-  if (process.env.DATABASE_URL) return process.env.DATABASE_URL;
-  const envContent = readFileSync(resolve(process.cwd(), '.env'), 'utf-8');
-  const match = envContent.match(/^DATABASE_URL=["']?([^"'\n]+)["']?/m);
-  if (match?.[1]) return match[1];
-  throw new Error('DATABASE_URL not found');
+  const url = import.meta.env.DATABASE_URL || process.env.DATABASE_URL;
+  if (!url) throw new Error('DATABASE_URL not found in environment variables');
+  return url;
 }
 
-export const POST: APIRoute = async ({ request }) => {
-  const connectionString = getDatabaseUrl();
-  const adapter = new PrismaNeon({ connectionString }); // ← sin Pool
-  const prisma = new PrismaClient({ adapter });
-
+export const POST: APIRoute = async ({ request }) => {  
   try {
+    const connectionString = getDatabaseUrl();  
+    const adapter = new PrismaNeon({ connectionString }); // ← sin Pool
+    const prisma = new PrismaClient({ adapter });
     const body = await request.json();
     const { name, email, dialCode, phone } = body;
 
@@ -46,7 +43,5 @@ export const POST: APIRoute = async ({ request }) => {
       JSON.stringify({ error: 'Error interno del servidor' }),
       { status: 500, headers: { 'Content-Type': 'application/json' } }
     );
-  } finally {
-    await prisma.$disconnect();
   }
 };
