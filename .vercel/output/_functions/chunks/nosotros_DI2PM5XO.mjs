@@ -1,8 +1,8 @@
-import { c as createComponent } from './astro-component_BVy0q73C.mjs';
-import { m as maybeRenderHead, b as renderComponent, r as renderTemplate, c as addAttribute } from './entrypoint_BFwTI1_J.mjs';
-import { r as renderScript, $ as $$MainLayout } from './MainLayout_083NTv6L.mjs';
-import { $ as $$Button, t as thumb2, a as team } from './team_4k_7hbO6.mjs';
-import { $ as $$Image } from './_astro_assets_Dsh3HQpx.mjs';
+import { c as createComponent } from './astro-component_BBW6I32v.mjs';
+import { m as maybeRenderHead, b as renderComponent, r as renderTemplate, c as addAttribute } from './entrypoint_CK2xrWc0.mjs';
+import { r as renderScript, $ as $$MainLayout } from './MainLayout_DMTnLyfw.mjs';
+import { $ as $$Button, t as thumb2, a as team } from './team_99HVDZrM.mjs';
+import { $ as $$Image } from './_astro_assets_B_T01o9e.mjs';
 
 const $$HeroAbout = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${maybeRenderHead()}<section id="hero-about" class="relative flex flex-col justify-end items-center w-full h-dvh min-h-screen bg-[url(../assets/images/about_bg.jpg)] bg-no-repeat md:bg-cover bg-cover bg-center 2xl:pb-20 lg:pb-10 md:pb-40 pb-20"> <div class="absolute inset-0 z-0 bg-linear-to-t from-black/70 rounded-sm"></div> <div class="flex flex-col justify-center items-center gap-15"> <div class="flex flex-col md:justify-around justify-center items-center w-auto h-auto bottom-20 left gap-5 z-10"> <h2 class="font-inter text-2xl md:text-3xl text-brand-peru-500 text-center">Slogan principal de la marca</h2> <h1 class="font-cormorant lg:text-8xl md:text-7xl text-5xl text-white text-center">Sobre Nosotros</h1> </div> <div id="hero-cta" class="flex flex-row w-[80%] justify-center items-center gap-10 z-10"> ${renderComponent($$result, "Button", $$Button, { "type": "main", "size": "lg", "link": "/" }, { "default": ($$result2) => renderTemplate`Main` })} </div> </div> </section>`;
