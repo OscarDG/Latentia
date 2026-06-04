@@ -1,6 +1,6 @@
-import { c as createComponent } from './astro-component_BBW6I32v.mjs';
-import { b as renderComponent, r as renderTemplate, m as maybeRenderHead } from './entrypoint_CK2xrWc0.mjs';
-import { $ as $$MainLayout } from './MainLayout_DMTnLyfw.mjs';
+import { c as createComponent } from './astro-component_BVy0q73C.mjs';
+import { b as renderComponent, r as renderTemplate, m as maybeRenderHead } from './entrypoint_BFwTI1_J.mjs';
+import { $ as $$MainLayout } from './MainLayout_083NTv6L.mjs';
 
 const $$Personas = createComponent(($$result, $$props, $$slots) => {
   const title = "Personas";

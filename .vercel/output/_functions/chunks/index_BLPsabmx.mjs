@@ -1,8 +1,8 @@
-import { c as createComponent } from './astro-component_BBW6I32v.mjs';
-import { m as maybeRenderHead, b as renderComponent, r as renderTemplate, c as addAttribute, d as renderSlot } from './entrypoint_CK2xrWc0.mjs';
-import { r as renderScript, $ as $$MainLayout } from './MainLayout_DMTnLyfw.mjs';
-import { $ as $$Button, a as team } from './team_99HVDZrM.mjs';
-import { $ as $$Image } from './_astro_assets_B_T01o9e.mjs';
+import { c as createComponent } from './astro-component_BVy0q73C.mjs';
+import { m as maybeRenderHead, b as renderComponent, r as renderTemplate, c as addAttribute, d as renderSlot } from './entrypoint_BFwTI1_J.mjs';
+import { r as renderScript, $ as $$MainLayout } from './MainLayout_083NTv6L.mjs';
+import { $ as $$Button, a as team } from './team_4k_7hbO6.mjs';
+import { $ as $$Image } from './_astro_assets_Dsh3HQpx.mjs';
 
 const $$HeroSection = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${maybeRenderHead()}<section id="hero-section" class="relative flex flex-col justify-end items-center w-full h-dvh min-h-screen bg-[url(../assets/images/hero_image.webp)] bg-no-repeat md:bg-cover bg-cover bg-center 2xl:pb-20 lg:pb-10 md:pb-40 pb-20"> <div class="absolute inset-0 z-0 bg-linear-to-t from-black/50 from-1% via-blur-md via-5% to-transparent to-90%"></div> <div class="flex flex-col justify-center items-center gap-15"> <div id="hero-text" class="flex flex-col md:justify-around justify-center items-center w-auto h-auto bottom-20 left gap-5 z-10"> <h1 class="font-cormorant lg:text-8xl md:text-7xl text-5xl text-brand-gray-100 text-center">This is the main text</h1> <h2 class="font-inter text-2xl text-brand-gray-100 text-center">Praesent sed justo interdum, ultrices magna at, tempor erat.</h2> </div> <div id="hero-cta" class="flex flex-row w-[80%] justify-center items-center gap-10 z-10"> ${renderComponent($$result, "Button", $$Button, { "type": "main", "size": "lg", "link": "/" }, { "default": ($$result2) => renderTemplate`Main` })} ${renderComponent($$result, "Button", $$Button, { "type": "second", "size": "lg", "link": "/" }, { "default": ($$result2) => renderTemplate`Second` })} </div> </div> </section>`;

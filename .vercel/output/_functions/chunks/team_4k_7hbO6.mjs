@@ -1,5 +1,5 @@
-import { c as createComponent } from './astro-component_BBW6I32v.mjs';
-import { m as maybeRenderHead, c as addAttribute, d as renderSlot, r as renderTemplate } from './entrypoint_CK2xrWc0.mjs';
+import { c as createComponent } from './astro-component_BVy0q73C.mjs';
+import { m as maybeRenderHead, c as addAttribute, d as renderSlot, r as renderTemplate } from './entrypoint_BFwTI1_J.mjs';
 
 const $$Button = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$props, $$slots);

@@ -1,5 +1,5 @@
-import { c as createComponent } from './astro-component_BBW6I32v.mjs';
-import { r as renderTemplate } from './entrypoint_CK2xrWc0.mjs';
+import { c as createComponent } from './astro-component_BVy0q73C.mjs';
+import { r as renderTemplate } from './entrypoint_BFwTI1_J.mjs';
 
 const $$Contacto = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate``;
