@@ -76,6 +76,7 @@ import image_url from "../assets/images/form_illustration.png";
                 throw new Error(data.error || 'Error al enviar el formulario');
             }
         }catch (err){
+            console.error('Error:', err);
             msg.textContent = 'Ups, algo salió mal. Por favor, intenta nuevamente.';
             msg.classList.replace('hidden', 'block');
             msg.classList.add('text-red-500');
