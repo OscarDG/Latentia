@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 import image_url from "../assets/images/form_illustration.png";
 
 ---
-<section class="flex flex-col items-center justify-center w-full h-full min-h-screen mt-10 mb-10 bg-[url(../assets/images/landscape.jpg)] bg-no-repeat md:bg-cover bg-cover bg-center">
+<section class="flex flex-col items-center justify-center w-full h-full min-h-screen mt-10 bg-[url(../assets/images/landscape.jpg)] bg-no-repeat md:bg-cover bg-cover bg-center">
     <div class="flex flex-row items-center w-[80%] h-[80%] min-h-120 bg-white rounded-md p-5">
         <div class="flex flex-col justify-center items-center w-[50%] h-[90%] min-h-110 gap-10">
             <div class="flex flex-col w-[90%] items-start gap-5">
@@ -42,46 +42,50 @@ import image_url from "../assets/images/form_illustration.png";
     </div>
 </section>
 <script>
-    const form = document.getElementById('contactForm') as HTMLFormElement;
-    const msg = document.getElementById('formMsg') as HTMLParagraphElement;
-    const btn = document.getElementById('submitBtn') as HTMLButtonElement;
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('contactForm') as HTMLFormElement | null;
+        const msg = document.getElementById('formMsg') as HTMLParagraphElement | null;
+        const btn = document.getElementById('submitBtn') as HTMLButtonElement | null;
 
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault(); 
-        btn.disabled = true;
-        btn.textContent = 'Enviando...';
-        msg.className = 'hiden text-sm text-center w-[80%]';
+        if (!form || !msg || !btn) return;
 
-        const payLoad = {
-            name: (document.getElementById('name') as HTMLInputElement).value,
-            email: (document.getElementById('email') as HTMLInputElement).value,
-            dialCode: (document.getElementById('dialCode') as HTMLSelectElement).value,
-            phone: (document.getElementById('phone') as HTMLInputElement).value,
-        };
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            btn.disabled = true;
+            btn.textContent = 'Enviando...';
+            msg.className = 'hidden text-sm text-center w-[80%]';
 
-        try{
-            const res = await fetch('/api/contact', {
-                method: 'POST',
-                headers: {'Content-type': 'application/json'},
-                body: JSON.stringify(payLoad)
-            });
-            const data = await res.json();
+            const payLoad = {
+                name: (document.getElementById('name') as HTMLInputElement).value,
+                email: (document.getElementById('email') as HTMLInputElement).value,
+                dialCode: (document.getElementById('dialCode') as HTMLSelectElement).value,
+                phone: (document.getElementById('phone') as HTMLInputElement).value,
+            };
 
-            if (res.ok) {
-                msg.textContent = '¡Gracias por contactarnos! Nos pondremos en contacto contigo pronto.';
-                msg.classList.replace('hidden', 'block');
-                msg.classList.add('text-green-500');
-                form.reset();
-            } else {
-                throw new Error(data.error || 'Error al enviar el formulario');
+            try {
+                const res = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-type': 'application/json' },
+                    body: JSON.stringify(payLoad)
+                });
+                const data = await res.json();
+
+                if (res.ok) {
+                    msg.textContent = '¡Gracias por contactarnos! Nos pondremos en contacto contigo pronto.';
+                    msg.classList.remove('hidden');
+                    msg.classList.add('text-green-500');
+                    form.reset();
+                } else {
+                    throw new Error(data.error || 'Error al enviar el formulario');
+                }
+            } catch (err) {
+                msg.textContent = 'Ups, algo salió mal. Por favor, intenta nuevamente.';
+                msg.classList.remove('hidden');
+                msg.classList.add('text-red-500');
+            } finally {
+                btn.disabled = false;
+                btn.textContent = 'Enviar';
             }
-        }catch (err){
-            msg.textContent = 'Ups, algo salió mal. Por favor, intenta nuevamente.';
-            msg.classList.replace('hidden', 'block');
-            msg.classList.add('text-red-500');
-        }finally {
-            btn.disabled = false;
-            btn.textContent = 'Enviar';
-        }
+        });
     });
 </script>
