@@ -14,6 +14,8 @@ function getDatabaseUrl(): string {
   return url;
 }
 
+export const prerender = false;
+
 export const POST: APIRoute = async ({ request }) => {  
   try {
     const connectionString = getDatabaseUrl();  

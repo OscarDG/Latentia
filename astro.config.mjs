@@ -8,12 +8,6 @@ import vercel from '@astrojs/vercel';
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
-    ssr: {
-      external: ['@prisma/client']
-    },
-    define: {
-      'process.env.DATABASE_URL': JSON.stringify(process.env.DATABASE_URL)
-    },
   },
   image: {
     service: passthroughImageService()
