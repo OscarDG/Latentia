@@ -1,8 +1,8 @@
 import type {Team} from "../types/team_types"
 
-import thumb1 from "../assets/images/women1.jpg"
-import thumb2 from "../assets/images/man1.jpg"
-import thumb3 from "../assets/images/women2.jpg"
+import thumb1 from "../assets/images/women1.webp"
+import thumb2 from "../assets/images/man1.webp"
+import thumb3 from "../assets/images/women2.webp"
 
 export const team: Team[] = [
     {
