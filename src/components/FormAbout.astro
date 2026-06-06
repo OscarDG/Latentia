@@ -3,41 +3,41 @@ import { Image } from "astro:assets";
 import image_url from "../assets/images/form_illustration.png";
 
 ---
-<section class="flex flex-col items-center justify-center w-full h-full min-h-screen mt-10 mb-10 bg-[url(../assets/images/landscape.jpg)] bg-no-repeat md:bg-cover bg-cover bg-center">
-    <div class="flex flex-row items-center w-[80%] h-[80%] min-h-120 bg-white rounded-md p-5">
-        <div class="flex flex-col justify-center items-center w-[50%] h-[90%] min-h-110 gap-10">
+<section class="flex flex-col items-center justify-center w-full h-full min-h-screen mt-10 mb-0 md:mb-10 pt-5 pb-5 bg-[url(../assets/images/landscape.webp)] bg-no-repeat md:bg-cover bg-cover bg-center">
+    <div class="flex flex-col md:flex-row items-center w-[90%] md:w-[80%] h-[70%] md:h-[80%] min-h-0 md:min-h-120 bg-white rounded-md p-5 gap-5 md:gap-0">
+        <div class="flex flex-col justify-center items-center w-[90%] md:w-[50%] h-[90%] min-h-20 md:min-h-110 gap-10">
             <div class="flex flex-col w-[90%] items-start gap-5">
-                <h2 class="w-[90%] text-4xl font-cormorant text-brand-red-500">Inicia tu camino con nosotros</h2>
-                <p class="w-[80%] text-sm font-inter">Solicita una asesoría personalizada diligenciando nuestro formulario de contacto</p>
+                <h2 class="w-[90%] text-2xl md:text-4xl font-cormorant text-brand-red-500">Inicia tu camino con nosotros</h2>
+                <p class="w-[80%] text-xs md:text-sm font-inter">Solicita una asesoría personalizada diligenciando nuestro formulario de contacto</p>
             </div>
-            <Image src={image_url} alt="Email" class="w-64 h-64 object-contain" />
+            <Image src={image_url} alt="Email" class="w-34 md:w-64 h-34 md:h-64 object-contain" />
         </div>
-        <form id="contactForm" class="flex flex-col justify-center items-center w-[50%] h-[90%] min-h-110 gap-10 rounded-sm bg-gray-100">
-            <input id="name" type="text" name="name" placeholder="Nombre completo" class="w-[80%] p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-red-500">
-            <input id="email" type="email" name="email" placeholder="Correo electrónico" class="w-[80%] p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-red-500">
-            <div class="flex flex-row w-[80%] gap-3">
-                <select id="dialCode" name="dialCode" class="w-30 p-3 rounded-md border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-brand-red-500">
-                    <option value="+57">COL +57</option>
-                    <option value="+1">US +1</option>
-                    <option value="+52">MX +52</option>
-                    <option value="+54">ARG +54</option>
-                    <option value="+56">CL +56</option>
-                    <option value="+51">PE +51</option>
-                    <option value="+58">VE +58</option>
-                    <option value="+593">EC +593</option>
-                    <option value="+591">BO +591</option>
-                    <option value="+595">PY +595</option>
-                    <option value="+598">UY +598</option>
-                    <option value="+34">ES +34</option>
-                    <option value="+55">BR +55</option>
-                    <option value="+44">GB +44</option>
-                    <option value="+49">DE +49</option>
-                    <option value="+33">FR +33</option>
+        <form id="contactForm" class="flex flex-col justify-center items-center w-[95%] md:w-[50%] h-[90%] min-h-20 md:min-h-110 gap-5 md:gap-10 p-3 rounded-sm bg-gray-100">
+            <input id="name" type="text" name="name" placeholder="Nombre completo" class="w-[90%] md:w-[80%] h-10 md:h-15 p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-red-500 text-sm">
+            <input id="email" type="email" name="email" placeholder="Correo electrónico" class="w-[90%] md:w-[80%] h-10 md:h-15 p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-red-500 text-sm">
+            <div class="flex flex-row w-[90%] md:w-[80%] h-12 md:h-17 gap-3">
+                <select id="dialCode" name="dialCode" class="w-[30%] md:w-30 h-10 md:h-15 p-1 md:text-[0.7em] text-[0.5em] rounded-md border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-brand-red-500">
+                    <option value="+57" class="w-30 text-xs">COL +57</option>
+                    <option value="+1" class="w-30 text-xs">US +1</option>
+                    <option value="+52" class="w-30 text-xs">MX +52</option>
+                    <option value="+54" class="w-30 text-xs">ARG +54</option>
+                    <option value="+56" class="w-30 text-xs">CL +56</option>
+                    <option value="+51" class="w-30 text-xs">PE +51</option>
+                    <option value="+58" class="w-30 text-xs">VE +58</option>
+                    <option value="+593" class="w-30 text-xs">EC +593</option>
+                    <option value="+591" class="w-30 text-xs">BO +591</option>
+                    <option value="+595" class="w-30 text-xs">PY +595</option>
+                    <option value="+598" class="w-30 text-xs">UY +598</option>
+                    <option value="+34" class="w-30 text-xs">ES +34</option>
+                    <option value="+55" class="w-30 text-xs">BR +55</option>
+                    <option value="+44" class="w-30 text-xs">GB +44</option>
+                    <option value="+49" class="w-30 text-xs">DE +49</option>
+                    <option value="+33" class="w-30 text-xs">FR +33</option>
                 </select>
-                <input id="phone" type="tel" name="phone" placeholder="Número de teléfono" class="w-[80%] p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-red-500">
+                <input id="phone" type="tel" name="phone" placeholder="Número de teléfono" class="w-[90%] md:w-[90%] h-10 md:h-15 p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-red-500 text-sm">
             </div>
             <p id="formMsg" class="hidden text-sm text-center w-[80%]"></p>
-            <button id="submitBtn" type="submit" class="w-[80%] p-3 bg-brand-red-500 text-white rounded-md hover:bg-brand-red-600 transition-colors duration-300">Enviar</button>
+            <button id="submitBtn" type="submit" class="w-[50%] md:w-[80%] p-3 bg-brand-red-500 text-white rounded-md hover:bg-brand-red-600 transition-colors duration-300 cursor-pointer">Enviar</button>
         </form>
     </div>
 </section>
