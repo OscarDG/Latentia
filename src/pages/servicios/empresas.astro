@@ -1,7 +1,17 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
+import HeroEmpresas from "../../components/HeroEmpresas.astro";
+import DescriptionEmpresas from "../../components/DescriptionEmpresas.astro";
+import ServiciosEmpresas from "../../components/ServiciosEmpresas.astro";
+import FormAbout from "../../components/FormAbout.astro";
+
+import {services} from "../../data/services.ts";
+
 const title = "Empresas";
 ---
 <MainLayout title={title}>
-    <h1>{title}</h1>
+    <HeroEmpresas />
+    <DescriptionEmpresas />
+    <ServiciosEmpresas service={services} />
+    <FormAbout />
 </MainLayout>

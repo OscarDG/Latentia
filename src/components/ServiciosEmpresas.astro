@@ -1,0 +1,28 @@
+---
+import type { Service } from "../types/services_types.ts";
+
+interface Props {
+    service: Service[],
+}
+
+const service: Service[] = Astro.props.service;
+---
+<section id="servicios-empresas" class="flex flex-col w-full justify-center h-auto min-h-screen gap-10 md:gap-30 pt-20 pb-10 md:pb-20">
+    <h1 class="font-cormorant text-4xl text-center text-brand-red-500">Conoce nuestros Servicios</h1>
+    <div class="flex flex-col md:flex-row justify-center md:items-stretch items-center md:flex-wrap w-full gap-x-5 gap-y-20 p-5">
+        {
+            service.filter((service) => service.type === "Corporative").map((service) => (
+                <div class="relative flex flex-col w-[90%] md:w-[30%] items-center bg-white bg-clip-border shadow-sm p-5 gap-5">
+                    <div class="relative mx-0 -mt-10 w-[95%] h-[55%] overflow-hidden rounded-md bg-clip-border shadow-md shadow-black-gray-500/40 gap-2 items-center">
+                        <img src={service.thumb_link} alt={service.title} class="w-full h-full object-cover rounded-sm" />
+                    </div>
+                    <div class="flex flex-col gap-5 mb-5">
+                        <h2 class="text-md font-bold text-brand-peru-500 font-inter">{service.title}</h2>
+                        <p class="font-inter">{service.shortText}</p>
+                    </div>
+                    <a href="/" class="bg-brand-red-600 hover:bg-brand-red-500 text-white px-5 py-2 rounded-sm font-inter cursor-pointer transition-scale ease-in hover:scale-101">Pedir cita</a>
+                </div>
+            ))
+        }
+    </div>
+</section>

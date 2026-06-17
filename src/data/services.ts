@@ -74,5 +74,34 @@ export const services: Service[] = [
         mainText: "",
         thumb_link: service5.src,
         link: "/service5" 
+    },
+    {
+        type: "Corporative",
+        title: "Service 5",
+        shortText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim at odio a ultrices. Duis non imperdiet neque. In hac habitasse platea dictumst. Fusce eu tempus augue.",
+        features: [
+            "Feature 1",
+            "Feature 2",
+            "Feature 3",
+            "Feature 4"
+        ],
+        mainText: "",
+        thumb_link: service5.src,
+        link: "/service5" 
+    },
+    {
+        type: "Corporative",
+        title: "Service 5",
+        shortText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim at odio a ultrices. Duis non imperdiet neque. In hac habitasse platea dictumst. Fusce eu tempus augue.",
+        features: [
+            "Feature 1",
+            "Feature 2",
+            "Feature 3",
+            "Feature 4"
+        ],
+        mainText: "",
+        thumb_link: service5.src,
+        link: "/service5" 
     }
+
 ]

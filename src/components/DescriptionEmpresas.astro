@@ -1,0 +1,29 @@
+---
+import {Image} from "astro:assets";
+const descImage = "/src/assets/images/team_image.webp";
+
+---
+<section id="description-empresas" class="flex flex-col justify-center items-center w-full h-auto bg-white py-20 gap-10">
+    <div class="flex flex-col md:flex-row justify-around gap-10 md:gap-15 w-[90%]">
+        <Image
+            src={descImage}
+            alt="Descripción de servicios empresariales"
+            width={550}
+            height={500}
+            class="rounded-sm"/>
+        <div class="flex flex-col justify-center items-start gap-10 w-full">
+            <h3 class="font-cormorant text-2xl md:text-3xl text-brand-peru-500 text-center">Nuestro diferencial</h3>
+            <p class="font-inter text-lg md:text-xl text-gray-700 text-left w-[90%]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <ul class="flex flex-col gap-3">
+                <li class="flex flex-row items-center gap-5">
+                    <span class="block w-5 h-5 rounded-full bg-brand-peru-600"></span>
+                    <h4>Enterprise Feature 1</h4>
+                </li>
+                <li class="flex flex-row items-center gap-5">
+                    <span class="block w-5 h-5 rounded-full bg-brand-peru-600"></span>
+                    <h4>Enterprise Feature 2</h4>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
