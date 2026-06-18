@@ -1,0 +1,143 @@
+---
+import {Image} from "astro:assets";
+import checkImage from '../assets/images/checkImage.png';
+import milestone from '../assets/images/milestone.png'
+import testimonial from '../assets/images/testimonial.png'
+import inspired from '../assets/images/inspired.png'
+
+---
+<section class="flex flex-col justify-around items-center w-full h-auto min-h-screen gap-10 md:gap-10 pt-20 pb-15 before:w-[80%] before:h-[0.5px] before:bg-gray-200 before:mb-10">
+    <h1 class="font-cormorant text-4xl md:text-6xl text-center text-brand-red-600 mb-20 md:mb-15">Nuestras Características</h1>
+    <div class="flex flex-col md:flex-row flex-wrap justify-center items-center gap-10 w-[95%] md:w-[90%] h-auto min-h-150 bg-white rounded-sm p-5 drop-shadow-md" feature-animate>
+        <div class="flex flex-row items-center w-full md:w-[45%] h-[45%] bg-linear-to-b from-brand-blue-100 to-brand-blue-100/50 gap-5 p-5 rounded-sm" feature-animate>
+            <div class="flex flex-col w-[55%] gap-5">
+                <span class="flex flex-row justify-center max-w-25 pt-1 pb-1 pl-2 pr-2 rounded-sm bg-white text-sm font-inter">Feature 1</span>
+                <h2 class="text-md md:text-xl font-inter font-semibold">Long feature description</h2>
+                <p class="font-inter text-sm md:text-md">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elit ante, ullamcorper eget malesuada sit amet, ultrices cursus erat. Maecenas accumsan turpis et felis tempor suscipit.</p>
+                <div class="group flex flex-row items-center gap-1">
+                    <a href="#" class="group-hover:underline flex items-center text-brand-peru-400 hover:text-brand-peru-500">Learn More</a>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 20"
+                        fill="none"
+                        stroke="#CE965F"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="transition group-hover:translate-x-2 w-6 h-6"
+                        >
+                        <path d="M5 12l14 0" />
+                        <path d="M15 16l4 -4" />
+                        <path d="M15 8l4 4" />
+                    </svg>
+                </div>
+            </div>
+            <div class="w-[40%] h-full flex justify-baseline items-center">
+                <Image src={checkImage} w-20 h-20 alt="Feature 2 Image">
+            </div>
+        </div>
+        <div class="flex flex-row items-center w-full md:w-[45%] h-[45%] bg-linear-to-b from-brand-peru-100 to-brand-peru-100/50 gap-5 p-5 rounded-sm" feature-animate>
+            <div class="flex flex-col w-[55%] gap-5">
+                <span class="flex flex-row justify-center max-w-25 pt-1 pb-1 pl-2 pr-2 rounded-sm bg-white text-sm font-inter">Feature 2</span>
+                <h2 class="text-md md:text-xl font-inter font-semibold">Long feature description</h2>
+                <p class="font-inter text-sm md:text-md">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elit ante, ullamcorper eget malesuada sit amet, ultrices cursus erat. Maecenas accumsan turpis et felis tempor suscipit.</p>
+                <div class="group flex flex-row items-center gap-1">
+                    <a href="#" class="group-hover:underline text-brand-peru-400 hover:text-brand-peru-500">Learn More</a>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 20"
+                        fill="none"
+                        stroke="#CE965F"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="transition group-hover:translate-x-2 w-6 h-6"
+                        >
+                        <path d="M5 12l14 0" />
+                        <path d="M15 16l4 -4" />
+                        <path d="M15 8l4 4" />
+                    </svg>
+                </div>
+            </div>
+            <div class="w-[40%] h-full flex justify-baseline items-center">
+                <Image src={milestone} w-20 h-20 alt="Feature 2 Image">
+            </div>
+        </div>
+        <div class="flex flex-row items-center w-full md:w-[45%] h-[45%] bg-linear-to-b from-brand-red-100 to-brand-red-100/50 gap-5 p-5 rounded-sm" feature-animate>
+            <div class="flex flex-col w-[55%] gap-5">
+                <span class="flex flex-row justify-center max-w-25 pt-1 pb-1 pl-2 pr-2 rounded-sm bg-white text-sm font-inter">Feature 3</span>
+                <h2 class="text-md md:text-xl font-inter font-semibold">Long feature description</h2>
+                <p class="font-inter text-sm md:text-md">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elit ante, ullamcorper eget malesuada sit amet, ultrices cursus erat. Maecenas accumsan turpis et felis tempor suscipit.</p>
+                <div class="group flex flex-row items-center gap-1">
+                    <a href="#" class="group-hover:underline text-brand-peru-400 hover:text-brand-peru-500">Learn More</a>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 20"
+                        fill="none"
+                        stroke="#CE965F"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="transition group-hover:translate-x-2 w-6 h-6"
+                        >
+                        <path d="M5 12l14 0" />
+                        <path d="M15 16l4 -4" />
+                        <path d="M15 8l4 4" />
+                    </svg>
+                </div>
+            </div>
+            <div class="w-[40%] h-full flex justify-baseline items-center">
+                <Image src={testimonial} w-20 h-20 alt="Feature 2 Image">
+            </div>
+        </div>
+        <div class="flex flex-row items-center w-full md:w-[45%] h-[45%] bg-linear-to-b from-brand-gray-100 to-brand-gray-100/50 gap-5 p-5 rounded-sm" feature-animate>
+            <div class="flex flex-col w-[55%] gap-5">
+                <span class="flex flex-row justify-center max-w-25 pt-1 pb-1 pl-2 pr-2 rounded-sm bg-white text-sm font-inter">Feature 4</span>
+                <h2 class="text-md md:text-xl font-inter font-semibold">Long feature description</h2>
+                <p class="font-inter text-sm md:text-md">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elit ante, ullamcorper eget malesuada sit amet, ultrices cursus erat. Maecenas accumsan turpis et felis tempor suscipit.</p>
+                <div class="group flex flex-row items-center gap-1">
+                    <a href="#" class="group-hover:underline text-brand-peru-400 hover:text-brand-peru-500">Learn More</a>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 20"
+                        fill="none"
+                        stroke="#CE965F"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="transition group-hover:translate-x-2 w-6 h-6"
+                        >
+                        <path d="M5 12l14 0" />
+                        <path d="M15 16l4 -4" />
+                        <path d="M15 8l4 4" />
+                    </svg>
+                </div>
+            </div>
+            <div class="w-[40%] h-full flex justify-baseline items-center">
+                <Image src={inspired} w-20 h-20 alt="Feature 2 Image">
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const features = gsap.utils.toArray("[feature-animate]") as HTMLElement[];
+
+  features.forEach((feature) => {
+    gsap.from(feature, {
+      scrollTrigger: {
+        trigger: feature,
+        start: "top 80%",
+        end: "bottom 60%",
+        toggleActions: "play none none reverse",
+      },
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      ease: "power2.out",
+    });
+  });

@@ -3,7 +3,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 import HeroAbout from "../components/HeroAbout.astro";
 import FeaturesAbout from "../components/FeaturesAbout.astro";
 import TeamAbout from "../components/TeamAbout.astro";
-import AboutHow from "../components/AboutHow.astro";
+import NosotrosFeatures from "../components/NosotrosFeatures.astro";
 import FormAbout from "../components/FormAbout.astro";
 import { team } from "../data/team";
 const title = "Nosotros";
@@ -11,7 +11,7 @@ const title = "Nosotros";
 <MainLayout title={title}>
     <HeroAbout />
     <FeaturesAbout />
+    <NosotrosFeatures />
     <TeamAbout team={team} />
-    <AboutHow />
     <FormAbout />
 </MainLayout>
