@@ -1,7 +1,20 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
+import HeroPersonas from "../../components/HeroPersonas.astro";
+import DescriptionPersonas from "../../components/DescriptionPersonas.astro";
+import ServiciosPersonas from "../../components/ServiciosPersonas.astro";
+import AboutHowPeople from "../../components/AboutHowPeople.astro";
+import FormAbout from "../../components/FormAbout.astro";
+
+import {services} from "../../data/services.ts";
+
+
 const title = "Personas"; 
 ---
 <MainLayout title={title}>
-    <h1>{title}</h1>
+    <HeroPersonas />
+    <DescriptionPersonas />
+    <ServiciosPersonas service={services} />
+    <AboutHowPeople />
+    <FormAbout />
 </MainLayout>

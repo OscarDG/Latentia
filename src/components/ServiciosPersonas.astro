@@ -10,11 +10,11 @@ const service: Service[] = Astro.props.service;
 
 const buttonLink = "/"
 ---
-<section id="servicios-empresas" class="flex flex-col w-full justify-center h-auto min-h-screen gap-10 md:gap-30 pt-20 pb-10 md:pb-20">
+<section id="servicios-personas" class="flex flex-col w-full justify-center h-auto min-h-screen gap-10 md:gap-30 pt-20 pb-10 md:pb-20">
     <h1 class="font-cormorant text-4xl text-center text-brand-red-500">Conoce nuestros Servicios</h1>
     <div class="flex flex-col md:flex-row justify-center md:items-stretch items-center md:flex-wrap w-full gap-x-5 gap-y-20 p-5">
         {
-            service.filter((service) => service.type === "Corporative").map((service) => (
+            service.filter((service) => service.type === "Persons").map((service) => (
                 <div class="relative flex flex-col w-[90%] md:w-[30%] items-center bg-white bg-clip-border shadow-sm p-5 gap-5">
                     <div class="relative mx-0 -mt-15 w-[95%] h-[55%] overflow-hidden rounded-md bg-clip-border shadow-md shadow-black-gray-500/40 gap-2 items-center">
                         <img src={service.thumb_link} alt={service.title} class="w-full h-full object-cover rounded-sm" />
