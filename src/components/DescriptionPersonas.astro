@@ -1,12 +1,12 @@
 ---
 import {Image} from "astro:assets";
-const descImage = "/src/assets/images/servicePeople.webp";
+import descImage from "/src/assets/images/servicePeople.webp";
 ---
 <section id="description-personas" class="flex flex-col justify-center items-center w-full h-auto bg-white py-20 gap-10">
     <div class="flex flex-col md:flex-row justify-around gap-10 md:gap-15 w-[90%]">
         <Image
             src={descImage}
-            alt="Descripción de servicios empresariales"
+            alt="Descripción de servicios personas"
             width={550}
             height={500}
             class="rounded-sm"/>
